@@ -1,0 +1,23 @@
+{
+    "name": "福利分頁",
+    "version": "0.0.1",
+    "manifest_version": 2,
+    "description": "福利分頁",
+    "short_name": "福利分頁",
+    "icons": {
+        "16": "images/icon-16.png",
+        "128": "images/icon-128.png"
+    },
+    "background": {
+        "scripts": [
+            "scripts/background.js"
+        ]
+    },
+    "chrome_url_overrides": {
+        "newtab": "index.html"
+    },
+    "permissions": [
+        "http://*/*",
+        "https://*/*"
+    ]
+}
