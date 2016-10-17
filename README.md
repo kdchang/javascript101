@@ -14,17 +14,17 @@
 10. 單元10 - Cookie、LocalStorage 與 SessionStorage 本地端資料儲存
 11. 單元11 - Firebase 雲端資料庫
 12. 單元12 - Chrome Extension 實戰教學
-13. 單元13 - 募資金額 100% 解鎖：前端開發面試常見問題研討
-14. 單元14 - 募資金額 200% 解鎖：Google Map API  / Facebook API 新手入門
-15. 單元15 - 募資金額 400% 解鎖：NodeJS 網路爬蟲入門實戰
-16. 單元16 - 募資金額 600% 解鎖：NodeJS / Express / MongoDB 新手入門 JavaScript 後端開發
-17. 單元17 - 募資金額 800% 解鎖：Electron 桌面應用程式開發入門
-18. 單元18 - 募資金額 1000% 解鎖：JavaScript 前端函式庫/框架介紹與 ReactJS 入門初體驗
-19. 單元19 - 募資金額 1500% 解鎖：React Native 行動應用程式開發入門（Naitve Mobile App）
-20. 單元20 - 募資金額 2000% 解鎖：JavaScript IoT 應用入門
-21. 單元21 - 募資金額 3000% 解鎖：WebVR 入門
+13. 單元13 - 前端開發面試常見問題研討
+14. 單元14 - Google Map API  / Facebook API 新手入門
+15. 單元15 - NodeJS 網路爬蟲入門實戰
+16. 單元16 - NodeJS / Express / MongoDB 新手入門 JavaScript 後端開發
+17. 單元17 - Electron 桌面應用程式開發入門
+18. 單元18 - JavaScript 前端函式庫/框架介紹與 ReactJS 入門初體驗
+19. 單元19 - React Native 行動應用程式開發入門（Naitve Mobile App）
+20. 單元20 - JavaScript IoT 應用入門
+21. 單元21 - WebVR 入門
 
 # 實戰教學（Examples）
 - [X] Fetch
-- [ ] Firebase
-- [ ] NewTab
+- [X] Firebase
+- [X] NewTab
