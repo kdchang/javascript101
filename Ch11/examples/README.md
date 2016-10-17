@@ -31,3 +31,4 @@ npm install --save-dev gulp gulp-sass gulp-uglify gulp-connect
 12. [Javascript iterate object](http://stackoverflow.com/questions/14379274/javascript-iterate-object)
 13. [Object.keys()](https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Reference/Global_Objects/Object/keys)
 14. [Attaching event handlers to dynamically created JavaScript elements](https://toddmotto.com/attaching-event-handlers-to-dynamically-created-javascript-elements/)
+15. [[宅] javascript筆記 - window.location類別](http://cat-son.blogspot.tw/2012/11/javascript-windowlocation.html)
