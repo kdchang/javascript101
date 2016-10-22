@@ -4,7 +4,9 @@
     "manifest_version": 2,
     "description": "BeautyTab",
     "short_name": "BeautyTab",  
-
+    "background": {
+        "scripts": ["/dist/js/main.js"]
+    },
     "chrome_url_overrides": {
         "newtab": "index.html"
     },

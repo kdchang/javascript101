@@ -1,8 +1,7 @@
 @charset "UTF-8";
 body {
   margin: 30px;
-  font-family: "Lantinghei TC", Hiragino Kaku Gothic Pro, Heiti TC, "微軟正黑體", "STHeiti Light", "Microsoft Yahei", "Microsoft JhengHei", Helvetica, sans-serif !important;
-  background: url("../images/sos.png"); }
+  font-family: "Lantinghei TC", Hiragino Kaku Gothic Pro, Heiti TC, "微軟正黑體", "STHeiti Light", "Microsoft Yahei", "Microsoft JhengHei", Helvetica, sans-serif !important; }
 
 .show-img-area {
   width: 450px;
