@@ -1,11 +1,11 @@
 'use strict';
-
 import gulp from 'gulp';
-import sass from 'gulp-sass';// import autoprefixer from 'gulp-autoprefixer';
-import uglify from 'gulp-uglify';// import autoprefixer from 'gulp-autoprefixer';
-import connect from 'gulp-connect';// import autoprefixer from 'gulp-autoprefixer';
-import browserify from 'browserify';// import autoprefixer from 'gulp-autoprefixer';
-import babelify from 'babelify';// import autoprefixer from 'gulp-autoprefixer';
+import sass from 'gulp-sass';
+import uglify from 'gulp-uglify';
+import connect from 'gulp-connect';
+import browserify from 'browserify';
+import babelify from 'babelify';
+// 轉成 gulp 讀取的 vinyl（黑膠）流
 import source from 'vinyl-source-stream';
 
 const dirs = {

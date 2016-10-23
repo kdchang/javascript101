@@ -1,5 +1,5 @@
 //const REQUEST_URL = 'http://163.29.157.32:8080/dataset/6a3e862a-e1cb-4e44-b989-d35609559463/resource/f4a75ba9-7721-4363-884d-c3820b0b917c/download/393625397fc043188a3f8237c1da1c6f.json';
-let index = Math.floor(Math.random() * 100);
+let index = Math.floor(Math.random() * 400);
 let data = '';
 
 function disLikeBtnListener() {
