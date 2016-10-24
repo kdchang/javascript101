@@ -1,0 +1,9 @@
+.thumbnail-image {
+	max-height: 200px;
+}
+
+.ellipsis {
+	overflow:hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+}

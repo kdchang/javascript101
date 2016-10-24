@@ -9,8 +9,8 @@
 5. 單元5 - JavaScript 函數 Function 基礎（寶可夢對戰）
 6. 單元6 - JavaScript 物件 Object 基礎（寶可夢對戰）
 7. 單元7 - BOM & DOM 操作基礎（寶可夢對戰）
-8. 單元8 - 事件處理  Event Handle（寶可夢對戰）
-9. 單元9 - Fetch / Ajax / JSON（iPet）
+8. 單元8 - 事件處理 Event Handle（寶可夢對戰）
+9. 單元9 - Fetch / Ajax / JSON（iPet 愛寵物）
 10. 單元10 - Cookie、LocalStorage 與 SessionStorage 本地端資料儲存（購物車）
 11. 單元11 - Firebase 雲端資料庫（iRich 記帳軟體）
 12. 單元12 - Chrome Extension 實戰教學（表特分頁、臉書掰掰）

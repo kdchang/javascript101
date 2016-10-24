@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+<head>
+	<meta charset="UTF-8">
+	<title>愛記帳 iRich</title>
+	<link rel="stylesheet" type="text/css" href="/dist/css/main.css">
+</head>
+<body>
+    <nav>
+	   	<a href="/">愛記帳 iRich</a>
+		<ul>
+			<li><a href="./">回首頁</a></li>
+			<li><a href="./create.html">新增支出</a></li>
+		</ul>
+	</nav>
+	<div>
+		<h3>新增支出</h3>
+		<hr>
+		<form method="get" action="">
+		  <div>
+		    <label for="title">今天買了什麼？</label>
+		    <input type="text" name="title" placeholder="請輸入消費名稱，Ex. 午餐、晚餐、看電影" required>
+		  </div>
+		  <div>
+		    <label for="type">消費類別？</label>
+			<select name="type" required>
+				<option value="">請選擇</option>
+				<option value="eat">餐費</option>
+				<option value="life">生活</option>
+				<option value="play">娛樂</option>
+				<option value="edu">教育</option>
+				<option value="trafic">交通</option>
+				<option value="others">其他</option>
+			</select>
+		  </div>
+		  <div>
+		    <label for="number">花了多少錢？</label>
+		    <input type="number" name="number" placeholder="消費金額 NT" required>
+		  </div>
+		  <div>
+		    <label for="date">消費時間？</label>
+		    <input type="date" name="date" placeholder="2016/10/10" required>
+		  </div>
+		  <button type="submit">提交送出</button>
+		  <a href="/"><button type="button">回首頁</button></a>
+		</form>
+	</div>
+</body>
+</html>
+

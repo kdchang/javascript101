@@ -1,0 +1,30 @@
+body {
+	background: black;
+}
+
+.title {
+	color: white;
+}
+
+.align-center {
+	display: flex; 
+	align-items: center; 
+	justify-content: center; 
+	flex-direction: column;
+}
+
+.player-container {
+	flex: 1;
+}
+
+.margin-top {
+	margin-top: 15px;
+}
+
+.person {
+	color: #FFFFFF;
+}
+
+.monster-img {
+	width: 100px;
+}
