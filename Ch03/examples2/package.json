@@ -1,7 +1,7 @@
 {
-  "name": "iRich",
+  "name": "PokomenFight",
   "version": "1.0.0",
-  "description": "bonus extensions",
+  "description": "Pokomen Fight",
   "main": "index.js",
   "scripts": {
     "start": "gulp",
@@ -17,23 +17,11 @@
     "babel-register": "^6.16.3",
     "babelify": "^7.3.0",
     "browserify": "^13.1.0",
-    "css-loader": "^0.25.0",
-    "extract-text-webpack-plugin": "^1.0.1",
     "gulp": "^3.9.1",
     "gulp-connect": "^5.0.0",
     "gulp-image": "^2.7.2",
     "gulp-sass": "^2.3.2",
     "gulp-uglify": "^2.0.0",
-    "html-webpack-plugin": "^2.22.0",
-    "sass-loader": "^4.0.2",
-    "style-loader": "^0.13.1",
-    "vinyl-source-stream": "^1.1.0",
-    "webpack": "^1.13.2",
-    "webpack-dev-server": "^1.16.2"
-  },
-  "dependencies": {
-    "chart.js": "^2.3.0",
-    "uuid": "^2.0.3",
-    "whatwg-fetch": "^1.0.0"
+    "vinyl-source-stream": "^1.1.0"
   }
 }

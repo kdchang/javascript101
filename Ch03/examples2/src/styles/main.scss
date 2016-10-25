@@ -13,8 +13,16 @@ body {
 	flex-direction: column;
 }
 
-.player-container {
-	flex: 1;
+.players-container {
+	margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.player-box {
+	width: 150px;
+	margin: 10px;
 }
 
 .margin-top {
@@ -27,4 +35,10 @@ body {
 
 .monster-img {
 	width: 100px;
+}
+
+@media (max-width: 400px) {
+	.title {
+  		font-size: 20px;
+	}
 }

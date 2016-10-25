@@ -13,77 +13,114 @@ const chikorita = new Monster('菊草葉', './dist/img/chikorita.png', 100, '草
 const monsters = [charmander, squirtle, bulbasaur];
 const competitors = [cyndaquil, totodile, chikorita];
 
+let myHP = 3;
+let cpHP = 3;
+
 function play() {
     let isFight = true;
     let choice = parseInt(prompt('小治，請問你要派出哪隻神奇寶貝呢（請輸入數字）？ ---------- 0 小火龍 1 傑尼龜 2 妙蛙種子'));
     let competitorChoice = Math.floor(Math.random() * 3);
 
-    while (!competitors[competitorChoice].isAlive()) {
-        competitorChoice = Math.floor(Math.random() * 3);
+    const winner = checkWinner();
+
+    if (winner) {
+        alert(`勝負已分，獲勝的是${winner}選手`);
+    } else {
+        while (!competitors[competitorChoice].isAlive()) {
+            competitorChoice = Math.floor(Math.random() * 3);
+        }
+
+        if (!(choice < 3) || !(choice >= 0)) {
+            alert('請輸入正確數字喔！');
+            return 0;
+        }
+
+        if (monsters[choice].isAlive()) {
+            switch (choice) {
+                case 0:
+                    if (competitorChoice === 0) {
+                        pk(choice, competitorChoice, 'tie');
+                        showView(choice, competitorChoice);
+                    } else if (competitorChoice === 1) {
+                        pk(choice, competitorChoice, 'lost');
+                        showView(choice, competitorChoice);
+                    } else {
+                        pk(choice, competitorChoice, 'win');
+                        showView(choice, competitorChoice);
+                    }
+                    break;
+                case 1:
+                    if (competitorChoice === 0) {
+                        pk(choice, competitorChoice, 'win');
+                        showView(choice, competitorChoice);
+                    } else if (competitorChoice === 1) {
+                        pk(choice, competitorChoice, 'tie');
+                        showView(choice, competitorChoice);
+                    } else {
+                        pk(choice, competitorChoice, 'lost');
+                        showView(choice, competitorChoice);  
+                    }
+                    break;
+                case 2:
+                    if (competitorChoice === 0) {
+                        pk(choice, competitorChoice, 'lost');
+                        showView(choice, competitorChoice);
+                    } else if (competitorChoice === 1) {
+                        pk(choice, competitorChoice, 'win');
+                        showView(choice, competitorChoice);
+                    } else {
+                        pk(choice, competitorChoice, 'tie');
+                        showView(choice, competitorChoice);
+                    }
+                    break;
+            }
+        } else {
+            alert(`${monsters[choice].getName()} 已失去戰鬥能力！`);
+            choice = -1;
+        }        
     }
 
-    if (monsters[choice].isAlive()) {
-        switch (choice) {
-            case 0:
-                if (competitorChoice === 0) {
-                    pk(choice, competitorChoice, 'tie');
-                    showView(choice, competitorChoice);
-                } else if (competitorChoice === 1) {
-                    pk(choice, competitorChoice, 'lost');
-                    showView(choice, competitorChoice);
-                } else {
-                    pk(choice, competitorChoice, 'win');
-                    showView(choice, competitorChoice);
-                }
-                break;
-            case 1:
-                if (competitorChoice === 0) {
-                    pk(choice, competitorChoice, 'win');
-                    showView(choice, competitorChoice);
-                } else if (competitorChoice === 1) {
-                    pk(choice, competitorChoice, 'tie');
-                    showView(choice, competitorChoice);
-                } else {
-                    pk(choice, competitorChoice, 'lost');
-                    showView(choice, competitorChoice);  
-                }
-                break;
-            case 2:
-                if (competitorChoice === 0) {
-                    pk(choice, competitorChoice, 'lost');
-                    showView(choice, competitorChoice);
-                } else if (competitorChoice === 1) {
-                    pk(choice, competitorChoice, 'win');
-                    showView(choice, competitorChoice);
-                } else {
-                    pk(choice, competitorChoice, 'tie');
-                    showView(choice, competitorChoice);
-                }
-                break;
-        }
+}
+
+function checkWinner() {
+    if (myHP === 0 && cpHP === 0) {
+        return '小治和小帽';
+    } else if (cpHP === 0) {
+        return '小治'
+    } else if (myHP === 0) {
+        return '小帽';
     } else {
-        alert(`${monsters[choice].getName()} 已失去戰鬥能力！`);
-        choice = -1;
+        return false;
+    }
+}
+
+function checkAlive(choice, competitorChoice) {
+    if (!monsters[choice].isAlive()) {
+        myHP -= 1;
+    }
+    if (!competitors[competitorChoice].isAlive()) {
+        cpHP -= 1;
     }
 }
 
 function pk(choice, competitorChoice, type) {
-    let dieCount = 0;
-
     switch (type) {
         case 'win':
             monsters[choice].setHurt(5);
             competitors[competitorChoice].setHurt(50);
+            checkAlive(choice, competitorChoice);
             alert(`就決定是你了！${monsters[choice].getName()} ------ 對方派出${competitors[competitorChoice].getName()}，太好了，抓住對方弱點！ HP -5，${monsters[choice].getName()} HP 還剩 ${monsters[choice].getHP()}`);
             break;
         case 'lost':
             monsters[choice].setHurt(50);
             competitors[competitorChoice].setHurt(5);
+            checkAlive(choice, competitorChoice);
             alert(`就決定是你了！${monsters[choice].getName()} ------ 對方派出${competitors[competitorChoice].getName()}，不好，屬性相剋！ HP -50，${monsters[choice].getName()} HP 還剩 ${monsters[choice].getHP()}`);
             break;
         case 'tie':
             monsters[choice].setHurt(30);
             competitors[competitorChoice].setHurt(30);
+            checkAlive(choice, competitorChoice);
             alert(`就決定是你了！${monsters[choice].getName()} ------ 對方派出${competitors[competitorChoice].getName()}，雙方勢均力敵！ HP -30，${monsters[choice].getName()} HP 還剩 ${monsters[choice].getHP()}`);
             break;
     }
@@ -123,4 +160,5 @@ function showView(choice, competitorChoice) {
       <li class="list-group-item">屬性：${competitors[competitorChoice].getType()}</li>
       `;
 }
+
 

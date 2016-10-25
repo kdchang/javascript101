@@ -1,6 +1,6 @@
 {
-  "name": "Bonus Tab",
-  "description": "bonus extensions",
+  "name": "PokomenFight",
+  "description": "PokomenFight",
   "main": "index.js",
   "authors": [
     "kdchang"

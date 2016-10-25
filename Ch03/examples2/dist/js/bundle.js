@@ -107,77 +107,113 @@ var chikorita = new _Monster2.default('菊草葉', './dist/img/chikorita.png', 1
 var monsters = [charmander, squirtle, bulbasaur];
 var competitors = [cyndaquil, totodile, chikorita];
 
+var myHP = 3;
+var cpHP = 3;
+
 function play() {
     var isFight = true;
     var choice = parseInt(prompt('小治，請問你要派出哪隻神奇寶貝呢（請輸入數字）？ ---------- 0 小火龍 1 傑尼龜 2 妙蛙種子'));
     var competitorChoice = Math.floor(Math.random() * 3);
 
-    while (!competitors[competitorChoice].isAlive()) {
-        competitorChoice = Math.floor(Math.random() * 3);
-    }
+    var winner = checkWinner();
 
-    if (monsters[choice].isAlive()) {
-        switch (choice) {
-            case 0:
-                if (competitorChoice === 0) {
-                    pk(choice, competitorChoice, 'tie');
-                    showView(choice, competitorChoice);
-                } else if (competitorChoice === 1) {
-                    pk(choice, competitorChoice, 'lost');
-                    showView(choice, competitorChoice);
-                } else {
-                    pk(choice, competitorChoice, 'win');
-                    showView(choice, competitorChoice);
-                }
-                break;
-            case 1:
-                if (competitorChoice === 0) {
-                    pk(choice, competitorChoice, 'win');
-                    showView(choice, competitorChoice);
-                } else if (competitorChoice === 1) {
-                    pk(choice, competitorChoice, 'tie');
-                    showView(choice, competitorChoice);
-                } else {
-                    pk(choice, competitorChoice, 'lost');
-                    showView(choice, competitorChoice);
-                }
-                break;
-            case 2:
-                if (competitorChoice === 0) {
-                    pk(choice, competitorChoice, 'lost');
-                    showView(choice, competitorChoice);
-                } else if (competitorChoice === 1) {
-                    pk(choice, competitorChoice, 'win');
-                    showView(choice, competitorChoice);
-                } else {
-                    pk(choice, competitorChoice, 'tie');
-                    showView(choice, competitorChoice);
-                }
-                break;
-        }
+    if (winner) {
+        alert('\u52DD\u8CA0\u5DF2\u5206\uFF0C\u7372\u52DD\u7684\u662F' + winner + '\u9078\u624B');
     } else {
-        alert(monsters[choice].getName() + ' \u5DF2\u5931\u53BB\u6230\u9B25\u80FD\u529B\uFF01');
-        choice = -1;
+        while (!competitors[competitorChoice].isAlive()) {
+            competitorChoice = Math.floor(Math.random() * 3);
+        }
+
+        if (!(choice < 3) || !(choice >= 0)) {
+            alert('請輸入正確數字喔！');
+            return 0;
+        }
+
+        if (monsters[choice].isAlive()) {
+            switch (choice) {
+                case 0:
+                    if (competitorChoice === 0) {
+                        pk(choice, competitorChoice, 'tie');
+                        showView(choice, competitorChoice);
+                    } else if (competitorChoice === 1) {
+                        pk(choice, competitorChoice, 'lost');
+                        showView(choice, competitorChoice);
+                    } else {
+                        pk(choice, competitorChoice, 'win');
+                        showView(choice, competitorChoice);
+                    }
+                    break;
+                case 1:
+                    if (competitorChoice === 0) {
+                        pk(choice, competitorChoice, 'win');
+                        showView(choice, competitorChoice);
+                    } else if (competitorChoice === 1) {
+                        pk(choice, competitorChoice, 'tie');
+                        showView(choice, competitorChoice);
+                    } else {
+                        pk(choice, competitorChoice, 'lost');
+                        showView(choice, competitorChoice);
+                    }
+                    break;
+                case 2:
+                    if (competitorChoice === 0) {
+                        pk(choice, competitorChoice, 'lost');
+                        showView(choice, competitorChoice);
+                    } else if (competitorChoice === 1) {
+                        pk(choice, competitorChoice, 'win');
+                        showView(choice, competitorChoice);
+                    } else {
+                        pk(choice, competitorChoice, 'tie');
+                        showView(choice, competitorChoice);
+                    }
+                    break;
+            }
+        } else {
+            alert(monsters[choice].getName() + ' \u5DF2\u5931\u53BB\u6230\u9B25\u80FD\u529B\uFF01');
+            choice = -1;
+        }
+    }
+}
+
+function checkWinner() {
+    if (myHP === 0 && cpHP === 0) {
+        return '小治和小帽';
+    } else if (cpHP === 0) {
+        return '小治';
+    } else if (myHP === 0) {
+        return '小帽';
+    } else {
+        return false;
+    }
+}
+
+function checkAlive(choice, competitorChoice) {
+    if (!monsters[choice].isAlive()) {
+        myHP -= 1;
+    }
+    if (!competitors[competitorChoice].isAlive()) {
+        cpHP -= 1;
     }
 }
 
 function pk(choice, competitorChoice, type) {
-    var dieCount = 0;
-
     switch (type) {
         case 'win':
             monsters[choice].setHurt(5);
             competitors[competitorChoice].setHurt(50);
+            checkAlive(choice, competitorChoice);
             alert('\u5C31\u6C7A\u5B9A\u662F\u4F60\u4E86\uFF01' + monsters[choice].getName() + ' ------ \u5C0D\u65B9\u6D3E\u51FA' + competitors[competitorChoice].getName() + '\uFF0C\u592A\u597D\u4E86\uFF0C\u6293\u4F4F\u5C0D\u65B9\u5F31\u9EDE\uFF01 HP -5\uFF0C' + monsters[choice].getName() + ' HP \u9084\u5269 ' + monsters[choice].getHP());
             break;
         case 'lost':
             monsters[choice].setHurt(50);
             competitors[competitorChoice].setHurt(5);
+            checkAlive(choice, competitorChoice);
             alert('\u5C31\u6C7A\u5B9A\u662F\u4F60\u4E86\uFF01' + monsters[choice].getName() + ' ------ \u5C0D\u65B9\u6D3E\u51FA' + competitors[competitorChoice].getName() + '\uFF0C\u4E0D\u597D\uFF0C\u5C6C\u6027\u76F8\u524B\uFF01 HP -50\uFF0C' + monsters[choice].getName() + ' HP \u9084\u5269 ' + monsters[choice].getHP());
             break;
         case 'tie':
             monsters[choice].setHurt(30);
             competitors[competitorChoice].setHurt(30);
+            checkAlive(choice, competitorChoice);
             alert('\u5C31\u6C7A\u5B9A\u662F\u4F60\u4E86\uFF01' + monsters[choice].getName() + ' ------ \u5C0D\u65B9\u6D3E\u51FA' + competitors[competitorChoice].getName() + '\uFF0C\u96D9\u65B9\u52E2\u5747\u529B\u6575\uFF01 HP -30\uFF0C' + monsters[choice].getName() + ' HP \u9084\u5269 ' + monsters[choice].getHP());
             break;
     }
