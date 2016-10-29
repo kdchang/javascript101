@@ -3,7 +3,7 @@ let data = '';
 let str = '';
 
 function fetchDemo() {
-    fetch(REQUEST_URL).then(function(response) {
+    fetch(REQUEST_URL).then((response) => {
         return response.json();
     }).then(function(json) {
       data = json;
@@ -13,7 +13,6 @@ function fetchDemo() {
 
 const dataList = () => {
   data.map((value, index) => {
-    console.log(value.url);
     str += 
     `
       <div class="col-sm-6 col-md-4">

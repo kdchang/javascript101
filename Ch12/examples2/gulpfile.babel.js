@@ -7,6 +7,7 @@ import browserify from 'browserify';
 import babelify from 'babelify';
 // 轉成 gulp 讀取的 vinyl（黑膠）流
 import source from 'vinyl-source-stream';
+import image from 'gulp-image';
 
 const dirs = {
   src: 'src',
@@ -21,6 +22,11 @@ const stylesPaths = {
 const scriptsPaths = {
   src: `${dirs.src}/scripts/*.js`,
   dest: `${dirs.dest}/js`
+};
+
+const imagesPaths = {
+  src: `${dirs.src}/images/*`,
+  dest: `${dirs.dest}/img`
 };
 
 gulp.task('styles', () => {
@@ -40,6 +46,16 @@ gulp.task('scripts', function(){
     .pipe(gulp.dest(scriptsPaths.dest));
 });
 
+gulp.task('images', function() {
+  gulp.src(imagesPaths.src)
+    .pipe(image())
+    .pipe(gulp.dest(imagesPaths.dest));
+});
+
+gulp.task('copy-index', function(){
+  return gulp.src(`${dirs.src}/index.html`).pipe(gulp.dest('dist'))
+});
+
 gulp.task('server', function () {
   connect.server({
     livereload: true,
@@ -52,4 +68,5 @@ gulp.task('watch', function () {
   gulp.watch(scriptsPaths.src, ['scripts']);
 });
 
-gulp.task('default', ['scripts', 'styles', 'server', 'watch']);
+gulp.task('default', ['copy-index', 'scripts', 'styles', 'images', 'server', 'watch']);
+gulp.task('build', ['copy-index', 'scripts', 'styles', 'images']);

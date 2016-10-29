@@ -1,6 +1,6 @@
 {
-  "name": "Bonus Tab",
-  "description": "bonus extensions",
+  "name": "iPet",
+  "description": "iPet examples",
   "main": "index.js",
   "authors": [
     "kdchang"

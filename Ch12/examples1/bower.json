@@ -1,6 +1,6 @@
 {
-  "name": "Bonus Tab",
-  "description": "bonus extensions",
+  "name": "ByeByeFB",
+  "description": "ByeByeFB extensions",
   "main": "index.js",
   "authors": [
     "kdchang"

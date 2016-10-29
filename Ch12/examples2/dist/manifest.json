@@ -1,0 +1,23 @@
+{
+    "name": "BeautyTab",
+    "version": "0.0.1",
+    "manifest_version": 2,
+    "description": "BeautyTab",
+    "short_name": "BeautyTab",  
+    "icons": {
+        "16": "./img/icon-16.png",
+        "19": "./img/icon-19.png",
+        "38": "./img/icon-38.png",
+        "128": "./img/icon-128.png",
+        "300": "./img/icon-300.png"
+    },
+    "background": {
+        "scripts": ["./js/bundle.js"]
+    },
+    "chrome_url_overrides": {
+        "newtab": "index.html"
+    },
+    "permissions": [
+        "tabs"
+    ]    
+}
