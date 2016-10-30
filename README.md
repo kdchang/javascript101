@@ -19,7 +19,7 @@
 15. 單元15 - NodeJS 網路爬蟲入門實戰
 16. 單元16 - NodeJS / Express / MongoDB 新手入門 JavaScript 後端開發（iRich 記帳軟體）
 17. 單元17 - Electron 桌面應用程式開發入門
-18. 單元18 - JavaScript 前端函式庫/框架介紹與 ReactJS 入門初體驗
+18. 單元18 - JavaScript 主流前端函式庫/框架簡介與 ReactJS 入門初體驗
 19. 單元19 - React Native 行動應用程式開發入門（Naitve Mobile App）
 20. 單元20 - JavaScript IoT 應用入門
 21. 單元21 - WebVR 入門
