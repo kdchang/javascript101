@@ -15116,7 +15116,7 @@ function writeAccountData(id, title, type, number, date) {
 
 function readAccountData() {
     var str = '\n    <thead>\n      <tr>\n        <th>\u6D88\u8CBB\u9805\u76EE</th>\n        <th>\u6D88\u8CBB\u985E\u5225</th>\n        <th>\u6D88\u8CBB\u91D1\u984D</th>\n        <th>\u6D88\u8CBB\u6642\u9593</th>\n        <th>\u64CD\u4F5C</th>\n      </tr>\n    </thead>  \n  ';
-    var accountRef = firebase.database().ref('account/');
+    var accountRef = database.ref('account/');
     var infoRef = document.querySelector('#data-chart-info');
     var dataTableRef = document.querySelector('#data-table');
 
@@ -15141,6 +15141,7 @@ function readAccountData() {
 
 function readFormData() {
     var params = window.location.search.replace('?', '').split('&');
+    console.log(params);
     var addFormRef = document.querySelector("#add-form");
     addFormRef.title.value = decodeURI(params[1].split('=')[1]);
     addFormRef.type.value = params[2].split('=')[1];

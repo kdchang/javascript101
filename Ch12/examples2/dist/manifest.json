@@ -1,23 +1,21 @@
 {
-    "name": "BeautyTab",
+    "name": "ByeByeFB",
     "version": "0.0.1",
     "manifest_version": 2,
-    "description": "BeautyTab",
-    "short_name": "BeautyTab",  
-    "icons": {
-        "16": "./img/icon-16.png",
-        "19": "./img/icon-19.png",
-        "38": "./img/icon-38.png",
-        "128": "./img/icon-128.png",
-        "300": "./img/icon-300.png"
+    "description": "ByeByeFB",
+    "short_name": "ByeByeFB",  
+    "content_scripts": [
+        {
+            "matches": ["https://zh-tw.facebook.com/*", "https://www.facebook.com/*"],
+            "css": ["./css/main.css", "./bower_components/bootstrap/dist/css/bootstrap.css"],
+            "js": ["./js/bundle.js"]
+        }
+    ],
+    "browser_action": {
+        "default_title": "讀書法寶", 
+        "default_popup": "./popup.html"    
     },
     "background": {
-        "scripts": ["./js/bundle.js"]
-    },
-    "chrome_url_overrides": {
-        "newtab": "index.html"
-    },
-    "permissions": [
-        "tabs"
-    ]    
+        "page": "./index.html"
+    }   
 }

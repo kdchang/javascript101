@@ -53,11 +53,12 @@ gulp.task('images', function() {
 });
 
 gulp.task('copy-index', function(){
-  return gulp.src(`${dirs.src}/index.html`).pipe(gulp.dest('dist'))
+  return gulp.src(`${dirs.src}/*`).pipe(gulp.dest('dist'))
 });
 
 gulp.task('server', function () {
   connect.server({
+    root: ['./dist'],
     livereload: true,
     port: 7777,
   });

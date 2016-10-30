@@ -1,48 +1,36 @@
-const bodyRef = document.querySelector('body');
-bodyRef.innerHTML = `
-  <div class="container">
-    <h1 class="header">不能再用 Facebook 了！！</h1>
-    <div>
-      <span class="countdown">距離聯考只剩：</span>
-      <span class="countdown" id="countdown"></span>
-    </div>
-    <br>
-    <a href="https://www.google.com"><button class="btn btn-default">快來用 Google XD</button></a>
-  </div>
-`
-countdown();
+//const REQUEST_URL = 'http://163.29.157.32:8080/dataset/6a3e862a-e1cb-4e44-b989-d35609559463/resource/f4a75ba9-7721-4363-884d-c3820b0b917c/download/393625397fc043188a3f8237c1da1c6f.json';
+let index = Math.floor(Math.random() * 400);
+let data = '';
 
-function countdown() {
-  const target_date = new Date("June 7, 2017").getTime();
-  let days; 
-  let hours;
-  let minutes
-  let seconds;
-  const countdown = document.querySelector('#countdown');
-  console.log(target_date);
+function disLikeBtnListener() {
+  const dislikeBtn = document.querySelector('#dislike-btn');
+  dislikeBtn.addEventListener('click', function() {
+    index = Math.floor(Math.random() * 400);
+    showData();
+  });
+}
 
-  var init = setInterval(function () {
-      var current_date = new Date().getTime();
-      var seconds_left = (target_date - current_date) / 1000;
-    if(seconds_left > 0){
-        days = parseInt(seconds_left / 86400);
-        seconds_left = seconds_left % 86400;
-         
-        hours = parseInt(seconds_left / 3600);
-        seconds_left = seconds_left % 3600;
-         
-        minutes = parseInt(seconds_left / 60);
-        seconds = parseInt(seconds_left % 60);
-         
-        // format countdown string + set tag value
-        countdown.className = 'countdown';
-        countdown.innerHTML = days + "天, " + hours + "小時, "
-        + minutes + "分, " + seconds + "秒";  
-    }
-    else{
-      countdown.className = 'countdown';
-      countdown.innerHTML = "恭喜考完！XD";
-      clearInterval(init); 
-    }
-  }, 1000);
-};
+function fetchDemo() {
+  const REQUEST_URL = 'http://gank.io/api/data/%E7%A6%8F%E5%88%A9/400/1';
+  fetch(REQUEST_URL).then((response) => {
+    return response.json();
+  }).then(function(json) {
+    data = json.results;
+    showData();
+    disLikeBtnListener();
+  });
+}
+
+const showData = () => {
+  let str = '';
+  str += 
+  `
+    <a href="${data[index].url}" class="thumbnail show-img-area" id="show-img-area" target="_blank">
+      <img src=${data[index].url}>
+    </a>
+  `;
+  document.querySelector('#show-img-box').innerHTML = str; 
+}
+
+
+fetchDemo();

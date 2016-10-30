@@ -38,7 +38,7 @@ function readAccountData() {
       </tr>
     </thead>  
   `;
-    const accountRef = firebase.database().ref('account/');
+    const accountRef = database.ref('account/');
     const infoRef = document.querySelector('#data-chart-info');
     const dataTableRef = document.querySelector('#data-table');
 
@@ -75,6 +75,7 @@ function readAccountData() {
 
 function readFormData() {
     const params = window.location.search.replace('?', '').split('&');
+    console.log(params);
     const addFormRef = document.querySelector("#add-form");
     addFormRef.title.value = decodeURI(params[1].split('=')[1]);
     addFormRef.type.value = params[2].split('=')[1];

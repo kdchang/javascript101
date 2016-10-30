@@ -1,6 +1,6 @@
 {
-  "name": "ByeByeFB",
-  "description": "ByeByeFB extensions",
+  "name": "BeautyTab",
+  "description": "BeautyTab extensions",
   "main": "index.js",
   "authors": [
     "kdchang"

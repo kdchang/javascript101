@@ -1,7 +1,7 @@
 {
-  "name": "BeautyTab",
+  "name": "ByeByeFB",
   "version": "1.0.0",
-  "description": "BeautyTab extensions",
+  "description": "ByeByeFB extensions",
   "main": "index.js",
   "scripts": {
     "start": "gulp",
