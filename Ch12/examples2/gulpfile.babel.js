@@ -52,8 +52,8 @@ gulp.task('images', function() {
     .pipe(gulp.dest(imagesPaths.dest));
 });
 
-gulp.task('copy-index', function(){
-  return gulp.src(`${dirs.src}/*`).pipe(gulp.dest('dist'))
+gulp.task('copy-html', function(){
+  return gulp.src(`${dirs.src}/*.html`).pipe(gulp.dest('dist'))
 });
 
 gulp.task('server', function () {
@@ -69,5 +69,5 @@ gulp.task('watch', function () {
   gulp.watch(scriptsPaths.src, ['scripts']);
 });
 
-gulp.task('default', ['copy-index', 'scripts', 'styles', 'images', 'server', 'watch']);
-gulp.task('build', ['copy-index', 'scripts', 'styles', 'images']);
+gulp.task('default', ['copy-html', 'scripts', 'styles', 'images', 'server', 'watch']);
+gulp.task('build', ['copy-html', 'scripts', 'styles', 'images']);
