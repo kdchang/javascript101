@@ -1,0 +1,18 @@
+<% include includes/head %>
+  <div class="contianer">
+    <ol class="breadcrumb">
+      <li><a href="/">Home</a></li>
+      <li class="active"><%= todo.title %></li>
+    </ol>
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <form method="post" action="/edit">
+          <input class="form-control" type="text" name="title" value="<%= todo.title %>" required placeholder="請輸入代辦事項">
+          <input type="hidden" name="id" value="<%= todo.id %>">
+          <br>
+          <button class="btn btn-warning btn-lg" type="submit">送出修改</button>   
+        </form>
+      </div>
+    </div>      
+  </div>  
+<% include includes/footer %>

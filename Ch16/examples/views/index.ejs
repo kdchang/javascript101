@@ -1,0 +1,22 @@
+<% include includes/head %>
+<h1><%= title %></h1>
+<form method="post" action="/create">
+	<label>代辦事項：</label>
+	<input class="form-control" type="text" name="title" required placeholder="請輸入代辦事項">
+	<br>
+	<button class="btn btn-primary btn-block" type="submit">提交</button>    	
+</form>
+<br>
+<table class="table table-striped">
+	<tr>
+		<th>代辦事項名稱</th>
+		<th>記錄時間</th> 
+	</tr>
+	<% for(let i = 0; i < todos.length; i++) { %>
+	<tr>
+		<td><a href="/todos/<%= todos[i].id %>"><span><%= todos[i].title %></span></a></td>
+		<td><span><%= todos[i].date %></span></td>
+	</tr> 
+	<% } %>
+</table>
+<% include includes/footer %>

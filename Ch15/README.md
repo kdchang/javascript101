@@ -6,3 +6,4 @@
 3. [Node.js 網路爬蟲](https://docs.google.com/presentation/d/1Jy4ZsLBRaTuHTsI0y3-P3ozw3iFxzjnmDuxXFMTkz8k/edit#slide=id.p)
 4. [How to make a web crawler in JavaScript / Node.js](http://www.netinstructions.com/how-to-make-a-simple-web-crawler-in-javascript-and-node-js/)
 5. [Scraping the Web With Node.js](https://scotch.io/tutorials/scraping-the-web-with-node-js)
+6. [pa4373/ptt-crawler.js](https://gist.github.com/pa4373/8007dbf28af8b0e39964)
