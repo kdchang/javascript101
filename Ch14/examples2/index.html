@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Facebook API</title>
+</head>
+<body>
+<script>
+// Only works after `FB.init` is called
+function myFacebookLogin() {
+  FB.login(function(){
+	FB.api('/me?fields=hometown', function(response) {
+	  console.log(response);
+	});
+  	FB.api('/me/feed', 'post', {message: 'Hello, world!'});
+  }, {scope: 'publish_actions', 'hometown'});
+}
+
+</script>
+<button onclick="myFacebookLogin()">Login with Facebook</button>
+<script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '566796913514093',
+      xfbml      : true,
+      version    : 'v2.8'
+    });
+    FB.AppEvents.logPageView();
+  };
+
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "//connect.facebook.net/en_US/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+</script>	
+</body>
+</html>
