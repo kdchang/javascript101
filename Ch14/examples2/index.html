@@ -9,11 +9,11 @@
 // Only works after `FB.init` is called
 function myFacebookLogin() {
   FB.login(function(){
-	FB.api('/me?fields=hometown', function(response) {
-	  console.log(response);
-	});
-  	FB.api('/me/feed', 'post', {message: 'Hello, world!'});
-  }, {scope: 'publish_actions', 'hometown'});
+  	FB.api('/me?fields=hometown', function(response) {
+  	  console.log(response);
+  	});
+  	FB.api('/me/feed', 'post', {message: 'Hello, kitty!'});
+  }, {scope: 'publish_actions'});
 }
 
 </script>
